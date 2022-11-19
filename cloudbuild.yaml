@@ -8,7 +8,7 @@ steps:
  
   # Docker Build
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['build','-t','gcr.io/projectk-368003/my-image/myimage-$BUILD_ID',
+    args: ['build','-t','gcr.io/projectk-368003/my-image/myimage-$COMMIT_SHA',
     '-t','gcr.io/projectk-368003/my-image/myimage:latest',
     '.']
 
