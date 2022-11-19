@@ -2,15 +2,16 @@ steps:
   - name: gradle:jdk17-alpine
     entrypoint: gradle
     args: ["assemble"]
+    env:
+    - 'BUILD=$BUILD_ID'
+    - 'COMMIT=$COMMIT_SHA'
  
   # Docker Build
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['build', '-t', 
-           'us-central1-docker.pkg.dev/${PROJECT_ID}/my-docker-repo/myimage:1.0',
-           "--build-arg=JAR_FILE=build/libs/demo-0.0.1.jar app.jar",
-           '.']
+    args: ['build','-t','gcr.io/projectk-368003/my-image/myimage-$COMMIT_SHA',
+    '-t','gcr.io/projectk-368003/my-image/myimage:latest',
+    '.']
 
   # Docker Push
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['push', 
-           'us-central1-docker.pkg.dev/${PROJECT_ID}/my-docker-repo/myimage:1.0']
+    args: ['push','gcr.io/projectk-368003/my-image/myimage:latest']
