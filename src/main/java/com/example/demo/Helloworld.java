@@ -8,4 +8,8 @@ class Helloworld {
         public String greet() {
                 return "Hello User..";
         }
+        @RequestMapping("/hi")
+        public String hi() {
+                return "Hi User..";
+        }
 }
