@@ -39,7 +39,7 @@ public class WebSecurityConfig {
             @Override
             protected void configure(HttpSecurity http) throws Exception {
                 JwtDecoder newJwtDecoder = wrapJwtDecoderWithResourceCheck(this.jwtDecoder, resource);
-
+                System.out.println(resource);
                 http
                         .cors()
                         .and()

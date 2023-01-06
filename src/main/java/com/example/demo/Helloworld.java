@@ -8,7 +8,7 @@ class Helloworld {
         public String greet() {
                 return "Hello User..";
         }
-        @RequestMapping("/api/hi")
+        @RequestMapping("/public/hi")
         public String hi() {
                 return "Hi User..";
         }
