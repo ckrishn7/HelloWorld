@@ -4,11 +4,11 @@ import org.springframework.web.bind.annotation.RestController;
 // Add the controller
 @RestController
 class Helloworld {
-        @RequestMapping("/greet")
+        @RequestMapping("/api/greet")
         public String greet() {
                 return "Hello User..";
         }
-        @RequestMapping("/hi")
+        @RequestMapping("/api/hi")
         public String hi() {
                 return "Hi User..";
         }
